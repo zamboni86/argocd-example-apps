@@ -6,11 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    chart: loki-distributed
+    chart: grafana/loki-distributed
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 0.78.5
-    helm:
-      releaseName: sealed-secrets
   destination:
     server: "https://kubernetes.default.svc"
     namespace: loki

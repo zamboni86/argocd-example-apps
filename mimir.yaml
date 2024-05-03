@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tempo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: mimir-distributed
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 5.3.0
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: mimir
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
